@@ -21,3 +21,7 @@ public class Pizza {
     @Enumerated(EnumType.STRING)
     private Sabor sabor;
 }
+
+
+
+// DTO = DATA TRANSFER OBJECT
