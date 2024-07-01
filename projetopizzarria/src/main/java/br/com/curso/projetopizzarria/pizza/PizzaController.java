@@ -1,5 +1,6 @@
 package br.com.curso.projetopizzarria.pizza;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class PizzaController {
 
     private final PizzaService pizzaService;
     @PostMapping
-    public void cadastrar(@RequestBody PizzaDTO dto){
+    public void cadastrar(@RequestBody @Valid PizzaDTO dto){
         pizzaService.criarPizza(dto);
     }
 
