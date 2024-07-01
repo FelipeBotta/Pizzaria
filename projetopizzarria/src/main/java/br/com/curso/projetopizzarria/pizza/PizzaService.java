@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class PizzaService {
@@ -19,4 +22,7 @@ public class PizzaService {
 
     }
 
+    public List<PizzaDTO> buscarTodos() {
+        return pizzaRepository.findAll().stream().map(p -> modelMapper.map(p, PizzaDTO.class)).collect(Collectors.toList());
+    }
 }
