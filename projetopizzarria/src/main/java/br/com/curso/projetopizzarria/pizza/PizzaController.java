@@ -14,13 +14,22 @@ public class PizzaController {
     private final PizzaService pizzaService;
     @PostMapping
     public void cadastrar(@RequestBody @Valid PizzaDTO dto){
+
         pizzaService.criarPizza(dto);
     }
 
     @GetMapping
     public List<PizzaDTO> buscarTodos(){
+
         return pizzaService.buscarTodos();
 
+    }
+
+
+    @GetMapping("/{id}")
+    public PizzaDTO buscarPorId(@PathVariable Long id){
+
+        return pizzaService.buscarPorId(id);
     }
 
 }
