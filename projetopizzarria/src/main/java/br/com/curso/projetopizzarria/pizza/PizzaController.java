@@ -28,7 +28,7 @@ public class PizzaController {
 
 
     @GetMapping("/{id}")
-    public PizzaDTO buscarPorId(@PathVariable Long id){
+    public PizzaDTO buscarPorId(@PathVariable @NotNull Long id){
 
         return pizzaService.buscarPorId(id);
     }
@@ -37,6 +37,12 @@ public class PizzaController {
     public PizzaDTO atualizar(@PathVariable @NotNull Long id, @RequestBody @Valid PizzaDTO dto){
         PizzaDTO pizzaAtualizada = pizzaService.atualizarPizza(id, dto);
         return pizzaAtualizada;
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable @NotNull Long id){
+        pizzaService.excluir(id);
+
     }
 
 }
