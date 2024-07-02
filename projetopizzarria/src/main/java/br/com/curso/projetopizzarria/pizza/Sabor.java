@@ -4,7 +4,7 @@ public enum Sabor {
     CALABRESA,
     QUATROQUEIJOS,
     MARGARITA,
-    CHOCOATE,
+    CHOCOLATE,
     MORANGO
 
 }

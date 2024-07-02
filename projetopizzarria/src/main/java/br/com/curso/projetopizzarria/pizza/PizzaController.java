@@ -1,6 +1,7 @@
 package br.com.curso.projetopizzarria.pizza;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,12 @@ public class PizzaController {
     public PizzaDTO buscarPorId(@PathVariable Long id){
 
         return pizzaService.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public PizzaDTO atualizar(@PathVariable @NotNull Long id, @RequestBody @Valid PizzaDTO dto){
+        PizzaDTO pizzaAtualizada = pizzaService.atualizarPizza(id, dto);
+        return pizzaAtualizada;
     }
 
 }

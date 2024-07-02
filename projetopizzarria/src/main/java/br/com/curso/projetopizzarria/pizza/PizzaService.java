@@ -32,4 +32,11 @@ public class PizzaService {
         return modelMapper.map(pizza, PizzaDTO.class);
     }
 
+    public PizzaDTO atualizarPizza(Long id, PizzaDTO dto) {
+        Pizza pizza = modelMapper.map(dto, Pizza.class);
+        pizza.setId(id);
+        pizza = pizzaRepository.save(pizza);
+        return modelMapper.map(pizza, PizzaDTO.class);
+    }
+
 }
